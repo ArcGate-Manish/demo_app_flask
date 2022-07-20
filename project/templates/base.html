@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename = 'base.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="navigation">   
+        <nav>
+          <ul>
+              <li><a href="{{ url_for('my_view.home') }}">Home</a></li>
+              <li><a href="{{ url_for('my_view.registrationform')}}">Registar</a></li>
+              <li><a href="{{ url_for('my_view.login') }}">Login</a></li>
+              <li><a href="{{ url_for('my_view.logout')}}">Logout</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <input type="text" class="searchbar" placeholder="Search..">
+          </ul>
+      </nav>
+  </div> 
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+  {% block content %}
+  {% endblock %}
+
+</body>
+</html>

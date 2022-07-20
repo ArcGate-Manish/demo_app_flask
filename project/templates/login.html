@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content%}
+<h3 class="heading">LOGIN SYSTEM DEMO PROJECT <br><br>LOGIN</h3>
+<form class="login" method="POST" action="" novalidate>
+    {{ form.csrf_token }}
+    {{ form.username.label }}
+    {{ form.username }}
+    <ul class = "error">
+        {% for error in form.username.errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {{ form.password.label }}
+    {{ form.password }}
+    <ul>
+        {% for error in form.password.errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>   
+    <label>
+        <input type="checkbox", value="remember_me">
+        Remember me
+    </label> <br>
+    <input type="submit" value="Submit">
+    
+</form>
+{% endblock %}

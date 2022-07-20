@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content%}
+<h1>Reset password</h1>
+<form id="reset" method="POST" action="" novalidate>
+    {{ form.csrf_token }}
+    {{ form.new_password.label }}
+    {{ form.new_password }}
+    <ul>
+        {% for error in form.new_password.errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {{ form.new_password_confirm.label }}
+    {{ form.new_password_confirm}}
+    <ul>
+        {% for error in form.new_password_confirm.errors %}
+            <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+   
+    <input type="submit" value="Submit">
+    
+</form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content%}
+<h1>ENTER YOUR OTP</h1>
+<form method="post" action="">
+    {{ form.csrf_token }}
+    {{ form.otp_field.label }}
+    {{ form.otp_field}}
+    {{ form.submit }}
+    <ul class = "error">
+        {% for error in form.otp_field.errors %}
+        <li style="color: red;">{{ error }}</li>
+        {% endfor %}
+    </ul>
+</form>
+{% endblock %}
